@@ -67,7 +67,7 @@ namespace Product.Domain.Handlers
             };
             _productModelRepository.Add(createdProduct);
             _productModelRepository.UnitOfWork.Commit();
-            return GetProductByCategoryId(createdProduct.Id);
+            return GetProductById(createdProduct.Id);
         }
 
         public Model.Product UpdateProduct(int ProductId, ProducToBeSaved productToBeSaved)
@@ -95,7 +95,7 @@ namespace Product.Domain.Handlers
             _mapper.Map(productToBeSaved, savedProduct);
             _productModelRepository.Update(savedProduct);
             _productModelRepository.UnitOfWork.Commit();
-            return GetProductByCategoryId(savedProduct.Id);
+            return GetProductById(savedProduct.Id);
         }
     }
 }
